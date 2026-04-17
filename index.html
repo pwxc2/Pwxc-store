@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-tag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWXC STORE</title>
+    <style>
+        :root {
+            --gta-green: #1DB954;
+            --white: #ffffff;
+            --overlay: rgba(0, 0, 0, 0.6); 
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            -webkit-tap-highlight-color: transparent; 
+        }
+
+        body {
+            background-image: linear-gradient(var(--overlay), var(--overlay)), 
+                              url('https://images.alphacoders.com/441/441710.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #000;
+            color: var(--white);
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+        }
+
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--gta-green);
+            color: black;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 900;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        [dir="ltr"] .lang-switch { left: auto; right: 20px; }
+
+        .header {
+            padding: 50px 20px;
+            text-align: center;
+            background: rgba(0,0,0,0.85);
+            border-bottom: 4px solid var(--gta-green);
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 { font-size: 2.8rem; font-weight: 900; }
+        .header p { color: var(--gta-green); font-size: 1.1rem; margin-top: 5px; font-weight: bold; }
+
+        .container { padding: 25px; max-width: 500px; margin: auto; }
+
+        .payment-notice {
+            background: rgba(29, 185, 84, 0.15);
+            border: 2px solid var(--gta-green);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 25px;
+            backdrop-filter: blur(5px);
+        }
+
+        .payment-notice h2 { font-size: 1.4rem; color: var(--gta-green); margin-bottom: 10px; }
+
+        .section-title {
+            color: #000;
+            background: var(--gta-green);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            margin: 10px 0 15px 0;
+            font-weight: 900;
+        }
+
+        .item-card {
+            background: rgba(0, 0, 0, 0.85); 
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 22px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            border-radius: 20px;
+            transition: 0.2s;
+        }
+
+        .item-card:active { transform: scale(0.96); background: var(--gta-green); color: black; }
+
+        .price-tag { font-size: 1.6rem; font-weight: 900; color: var(--gta-green); min-width: 70px; text-align: end; }
+        .item-card:active .price-tag { color: black; }
+
+        .region-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .region-box {
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .footer { text-align: center; padding: 40px; font-weight: bold; opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+    <button class="lang-switch" onclick="toggleLang()" id="langBtn">English</button>
+
+    <div class="header">
+        <h1>PWXC STORE</h1>
+        <p id="subTitle">مودات سيارات • الحصري عندنا</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="payment-notice">
+            <h2 id="payMainTitle">💳 طريقة الدفع</h2>
+            <p id="payMethod">نقبل فقط بطاقات الستور (PSN)</p>
+            <div class="section-title" style="margin-top: 15px;" id="regionTitle">الدول المقبولة:</div>
+            <div class="region-grid">
+                <div class="region-box" id="reg1">🇰🇼 كويتي (KW)</div>
+                <div class="region-box" id="reg2">🇸🇦 سعودي (SA)</div>
+                <div class="region-box" id="reg3">🇺🇸 أمريكي (US)</div>
+                <div class="region-box" id="reg4">🇦🇪 إماراتي (UAE)</div>
+            </div>
+        </div>
+
+        <div class="section-title" id="pkgTitle">🚗 باقات السيارات</div>
+
+        <a href="https://wa.me/96550900234?text=سلام عليكم حمود، ابي باقة 10 سيارات" class="item-card">
+            <div class="info">
+                <h3 id="card1Title">باقة 10 سيارات</h3>
+                <p id="card1Desc">الأكثر طلباً • تسليم فوري</p>
+            </div>
+            <div class="price-tag">10$</div>
+        </a>
+
+        <a href="https://wa.me/96550900234?text=سلام عليكم حمود، ابي باقة 20 سيارة" class="item-card">
+            <div class="info">
+                <h3 id="card2Title">باقة 20 سيارة</h3>
+                <p id="card2Desc">اختيارك الشخصي • تسليم سريع</p>
+            </div>
+            <div class="price-tag">20$</div>
+        </a>
+
+        <a href="https://wa.me/96550900234?text=سلام عليكم حمود، ابي باقة 30 سيارة" class="item-card">
+            <div class="info">
+                <h3 id="card3Title">باقة 30 سيارة</h3>
+                <p id="card3Desc">باقة المجمّعين • حصري</p>
+            </div>
+            <div class="price-tag">30$</div>
+        </a>
+
+        <div class="footer" id="footerText">
+            جميع الحقوق محفوظة لشبكة حمود © 2026
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'ar';
+        function toggleLang() {
+            const html = document.getElementById('html-tag');
+            const btn = document.getElementById('langBtn');
+            
+            if (currentLang === 'ar') {
+                html.dir = 'ltr';
+                btn.innerText = 'العربية';
+                
+                // Header & Payment
+                document.getElementById('subTitle').innerText = 'Vehicle Mods • Exclusive Content';
+                document.getElementById('payMainTitle').innerText = '💳 Payment Method';
+                document.getElementById('payMethod').innerText = 'We only accept PSN Gift Cards';
+                document.getElementById('regionTitle').innerText = 'Accepted Regions:';
+                
+                // Regions
+                document.getElementById('reg1').innerText = '🇰🇼 Kuwait (KW)';
+                document.getElementById('reg2').innerText = '🇸🇦 Saudi (SA)';
+                document.getElementById('reg3').innerText = '🇺🇸 USA (US)';
+                document.getElementById('reg4').innerText = '🇦🇪 UAE';
+
+                // Packages
+                document.getElementById('pkgTitle').innerText = '🚗 Car Bundles';
+                document.getElementById('card1Title').innerText = '10 Cars Bundle';
+                document.getElementById('card1Desc').innerText = 'Most Popular • Instant Delivery';
+                
+                document.getElementById('card2Title').innerText = '20 Cars Bundle';
+                document.getElementById('card2Desc').innerText = 'Custom Choice • Fast Delivery';
+                
+                document.getElementById('card3Title').innerText = '30 Cars Bundle';
+                document.getElementById('card3Desc').innerText = 'Collectors Pack • Exclusive';
+
+                document.getElementById('footerText').innerHTML = 'All rights reserved to Hamood Network © 2026';
+                currentLang = 'en';
+            } else {
+                html.dir = 'rtl';
+                btn.innerText = 'English';
+                
+                // Header & Payment
+                document.getElementById('subTitle').innerText = 'مودات سيارات • الحصري عندنا';
+                document.getElementById('payMainTitle').innerText = '💳 طريقة الدفع';
+                document.getElementById('payMethod').innerText = 'نقبل فقط بطاقات الستور (PSN)';
+                document.getElementById('regionTitle').innerText = 'الدول المقبولة:';
+                
+                // Regions
+                document.getElementById('reg1').innerText = '🇰🇼 كويتي (KW)';
+                document.getElementById('reg2').innerText = '🇸🇦 سعودي (SA)';
+                document.getElementById('reg3').innerText = '🇺🇸 أمريكي (US)';
+                document.getElementById('reg4').innerText = '🇦🇪 إماراتي (UAE)';
+
+                // Packages
+                document.getElementById('pkgTitle').innerText = '🚗 باقات السيارات';
+                document.getElementById('card1Title').innerText = 'باقة 10 سيارات';
+                document.getElementById('card1Desc').innerText = 'الأكثر طلباً • تسليم فوري';
+                
+                document.getElementById('card2Title').innerText = 'باقة 20 سيارة';
+                document.getElementById('card2Desc').innerText = 'اختيارك الشخصي • تسليم سريع';
+                
+                document.getElementById('card3Title').innerText = 'باقة 30 سيارة';
+                document.getElementById('card3Desc').innerText = 'باقة المجمّعين • حصري';
+
+                document.getElementById('footerText').innerHTML = 'جميع الحقوق محفوظة لشبكة حمود © 2026';
+                currentLang = 'ar';
+            }
+        }
+    </script>
+</body>
+</html>
